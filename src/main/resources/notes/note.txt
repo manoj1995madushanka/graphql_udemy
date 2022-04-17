@@ -1,0 +1,6 @@
+for double values schema define Float
+    ex : marksObtained of query
+
+define "type" for output objects
+
+define "input" for request object
