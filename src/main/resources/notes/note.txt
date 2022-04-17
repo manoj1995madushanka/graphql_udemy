@@ -4,3 +4,11 @@ for double values schema define Float
 define "type" for output objects
 
 define "input" for request object
+
+===============
+why we need resolver
+    without resolver all the mapping logic of returning object will execute and graphQL will
+       ignore not requested data when returning response
+    this will reduce app performance so that is why we need resolver
+
+=======================
