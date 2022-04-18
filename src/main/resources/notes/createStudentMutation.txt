@@ -1,0 +1,33 @@
+mutation{
+  createStudent(studentRequest:{
+    firstName:"Manoj"
+    lastName:"Madushanka"
+    email:"abc@gmail.com"
+    street:"Talpe"
+    city:"Galle"
+    subjectsLearning:[
+      {
+        subjectName:"Java"
+        marksObtained:60.0
+      },
+      {
+        subjectName:"MongoDB"
+        marksObtained:30.0
+      }
+    ]
+  }) {
+    id
+    firstName
+    lastName
+    email
+    street
+    city
+    learningSubjects(subjectNameFilter: All) {
+      id
+      subjectName
+      marksObtained
+    }
+    fullName
+  }
+
+}

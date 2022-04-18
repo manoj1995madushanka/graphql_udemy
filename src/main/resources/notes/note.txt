@@ -12,3 +12,5 @@ why we need resolver
     this will reduce app performance so that is why we need resolver
 
 =======================
+need to define input or type of .graphqls files are only once
+    ex: we not define StudentResponse in mutation.graphqls file because query.graphqls already has that
