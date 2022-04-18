@@ -2,6 +2,7 @@ package com.example.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.example.entity.Subject;
+import com.example.enums.SubjectNameFilter;
 import com.example.response.StudentResponse;
 import com.example.response.SubjectResponse;
 import org.springframework.stereotype.Component;
@@ -16,13 +17,16 @@ public class StudentResponseResolver implements GraphQLResolver<StudentResponse>
     // each method of resolver should be public
     // this is student to subject edge
     // because we're traversing though student to subject node
-    public List<SubjectResponse> getLearningSubjects(StudentResponse studentResponse) {
+    public List<SubjectResponse> getLearningSubjects(StudentResponse studentResponse,
+                                                     SubjectNameFilter subjectNameFilter) {
 
         List<SubjectResponse> learningSubjects = new ArrayList<>();
 
         if (studentResponse.getStudent().getLearningSubjects() != null) {
             for (Subject subject : studentResponse.getStudent().getLearningSubjects()) {
-                learningSubjects.add(new SubjectResponse(subject));
+                if (subjectNameFilter.name().equalsIgnoreCase(subject.getSubjectName())) {
+                    learningSubjects.add(new SubjectResponse(subject));
+                }
             }
         }
 
@@ -31,8 +35,8 @@ public class StudentResponseResolver implements GraphQLResolver<StudentResponse>
 
     /**
      * logic for generate fullName
-     * */
-    public String getFullName(StudentResponse studentResponse){
+     */
+    public String getFullName(StudentResponse studentResponse) {
         return studentResponse.getFirstName() + " " + studentResponse.getLastName();
     }
 }
