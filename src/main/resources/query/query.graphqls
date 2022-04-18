@@ -20,6 +20,7 @@ type SubjectResponse{
 }
 
 enum SubjectNameFilter {
+    All,
     Java,
     MySQL,
     MongoDB
