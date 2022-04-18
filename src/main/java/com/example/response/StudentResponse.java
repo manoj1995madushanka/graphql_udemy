@@ -31,6 +31,10 @@ public class StudentResponse {
 
     private Student student;
 
+    // we are not generating fullName in constructor because some consumers do not need fullName
+    // so we move fullName generating logic to resolver
+    private String fullName;
+
     public StudentResponse(Student student) {
         if (student != null) {
             this.student = student;
