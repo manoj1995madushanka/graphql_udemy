@@ -14,6 +14,8 @@ import java.util.List;
 public class StudentResponseResolver implements GraphQLResolver<StudentResponse> {
 
     // each method of resolver should be public
+    // this is student to subject edge
+    // because we're traversing though student to subject node
     public List<SubjectResponse> getLearningSubjects(StudentResponse studentResponse) {
 
         List<SubjectResponse> learningSubjects = new ArrayList<>();
