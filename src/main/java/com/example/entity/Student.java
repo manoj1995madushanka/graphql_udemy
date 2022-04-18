@@ -35,7 +35,7 @@ public class Student {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-	@OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "student")
 	private List<Subject> learningSubjects;
 	
 	public Student (CreateStudentRequest createStudentRequest) {
